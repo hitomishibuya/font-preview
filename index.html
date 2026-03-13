@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <title>フォント試し打ち</title>
+
+    <style>
+        body {
+            margin: 40px;
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #F9FAFB;
+            color:#273446;
+
+        }
+
+        @font-face {
+            font-family: "lefthanded_free";
+            src: url("font/lefthanded-girlfriend_free.otf");
+        }
+
+        @font-face {
+            font-family: "lefthanded";
+            src: url("font/lefthanded-girlfriend.otf");
+        }
+
+        @font-face {
+            font-family: "ringo_free";
+            src: url("font/ringohime_free.otf");
+        }
+
+        @font-face {
+            font-family: "ringo_regular";
+            src: url("font/ringohime.otf");
+        }
+
+        @font-face {
+            font-family: "ringo_bold";
+            src: url("font/ringohime_Bold.otf");
+        }
+
+        @font-face {
+            font-family: "furikake";
+            src: url("font/FURIKAKE!.otf");
+        }
+
+        @font-face {
+            font-family: "furikake_hand";
+            src: url("font/FURIKAKE!_Hand-drawing.otf");
+        }
+
+        @font-face {
+            font-family: "mpr";
+            src: url("font/MPR_Balloon.otf");
+        }
+
+        @font-face {
+            font-family: "weekend";
+            src: url("font/Weekend Citron.otf");
+        }
+
+        @font-face {
+            font-family: "isekai";
+            src: url("font/ISEKAI-grimoire-.otf");
+        }
+
+        body {
+            margin: 40px;
+            font-family: sans-serif;
+        }
+
+        .container {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            font-size: 20px;
+            color:#273446;
+        }
+
+        .fontselect {
+            margin-top: 40px;
+            font-size: 24px;
+        }
+
+        #preview {
+            font-family: "lefthanded";
+            font-size: 80px;
+            margin-top: 60px;
+        }
+
+        .fontselect {
+            margin-top: 40px;
+            /* 上の余白 */
+            margin-bottom: 10px;
+            /* 下の余白 */
+        }
+
+        button {
+            padding: 8px 16px;
+            margin-right: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #DFE6EC;
+            color:#273446;
+        }
+
+        button.active {
+            opacity: 0.5;
+        }
+
+        .buy {
+            margin-top: 80px;
+        }
+
+        .buy-grid {
+            display: flex;
+            gap: 20px;
+            /* カード間のスペース */
+            flex-wrap: wrap;
+            /* 折り返しを許可 */
+            justify-content: flex-start;
+            /* 左揃え */
+        }
+
+        .buy-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+            flex: 0 1 calc((100% - 40px)/3);
+            /* 横幅を3分割（gapを引いた分） */
+            min-width: 366px;
+            /* 小さくなりすぎない */
+            box-sizing: border-box;
+            /* paddingを含めた幅計算 */
+        }
+
+
+
+        .buy-card h3 {
+            margin-top: 0;
+        }
+
+        .buy-button {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 10px 20px;
+            background: #273446;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        @media screen and (max-width:800px) {
+            .buy-card {
+                flex: 1 1 100%;
+                /* 幅100%で縦並び */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>フォント試し打ち</h1>
+
+        <p>入力した文字が各フォントで表示されます。</p>
+
+        <textarea id="input">吾輩は猫である abc 123</textarea>
+
+        <h3 class="fontselect">フォント選択</h3>
+
+
+        <button onclick="changeFont('lefthanded_free', this)">
+            左利きの彼女 無料版
+        </button>
+
+        <button class="active" onclick="changeFont('lefthanded', this)">
+            左利きの彼女 通常版
+        </button>
+
+        <button onclick="changeFont('ringo_free', this)">
+            りんごひめ 無料版
+        </button>
+
+        <button onclick="changeFont('ringo_regular', this)">
+            りんごひめ Regular
+        </button>
+
+        <button onclick="changeFont('ringo_bold', this)">
+            りんごひめ Bold
+        </button>
+
+        <button onclick="changeFont('furikake', this)">
+            あしらいフォント FURIKAKE!
+        </button>
+
+        <button onclick="changeFont('furikake_hand', this)">
+            あしらいフォント FURIKAKE! 手描き版
+        </button>
+
+        <button onclick="changeFont('mpr', this)">
+            MPR ばるーん
+        </button>
+
+        <button onclick="changeFont('weekend', this)">
+            Weekend Citron
+        </button>
+
+        <button onclick="changeFont('isekai', this)">
+            ISEKAI-grimoire-
+        </button>
+
+        <h3 class="fontselect">プレビュー</h3>
+        <div id="preview">
+            吾輩は猫である abc 123
+        </div>
+
+
+
+        <script>
+
+            const input = document.getElementById("input")
+            const preview = document.getElementById("preview")
+
+            input.addEventListener("input", function () {
+                preview.textContent = input.value
+            })
+
+            function changeFont(font, button) {
+
+                const preview = document.getElementById("preview")
+                preview.style.fontFamily = font
+
+                // すべてのボタンのactiveを外す
+                document.querySelectorAll("button").forEach(btn => {
+                    btn.classList.remove("active")
+                })
+
+                // 押されたボタンにactiveを付ける
+                button.classList.add("active")
+
+            }
+
+
+        </script>
+
+
+        <div class="buy">
+
+            <h2>無料ダウンロード・購入はこちら</h2>
+
+            <div class="buy-grid">
+
+                <div class="buy-card">
+                    <h3>note</h3>
+                    <p>制作過程なども見たい方はこちら</p>
+                    <a class="buy-button" href="https://note.com/shibumi/m/m38555ec226a1" target="_blank">購入ページへ</a>
+                </div>
+
+                <div class="buy-card">
+                    <h3>BOOTH</h3>
+                    <p>ざっと一覧で見たい方はこちら</p>
+                    <a class="buy-button" href="https://ilamemo.booth.pm/" target="_blank">購入ページへ</a>
+                </div>
+
+                <div class="buy-card">
+                    <h3>デザインポケット</h3>
+                    <p>領収書が必要な方はこちら（一部のみお取り扱い）</p>
+                    <a class="buy-button" href="https://designpocket.jp/font?brand=561" target="_blank">購入ページへ</a>
+                </div>
+
+            </div>
+        </div>
+</body>
+
+</html>
