@@ -14,61 +14,36 @@
             color:#273446;
 
         }
-
         @font-face {
-            font-family: "lefthanded_free";
-            src: url("font/lefthanded-girlfriend_free.otf");
+            font-family: "daisuki_free";
+            src: url("font/daidaidaidaidaaisuki_free.woff2");
         }
 
         @font-face {
-            font-family: "lefthanded";
-            src: url("font/lefthanded-girlfriend.otf");
+            font-family: "lefthanded_free";
+            src: url("font/lefthanded-girlfriend_free.woff2");
         }
 
         @font-face {
             font-family: "ringo_free";
-            src: url("font/ringohime_free.otf");
-        }
-
-        @font-face {
-            font-family: "ringo_regular";
-            src: url("font/ringohime.otf");
-        }
-
-        @font-face {
-            font-family: "ringo_bold";
-            src: url("font/ringohime_Bold.otf");
-        }
-
-        @font-face {
-            font-family: "furikake";
-            src: url("font/FURIKAKE!.otf");
-        }
-
-        @font-face {
-            font-family: "furikake_hand";
-            src: url("font/FURIKAKE!_Hand-drawing.otf");
+            src: url("font/ringohime_free.woff2");
         }
 
         @font-face {
             font-family: "mpr";
-            src: url("font/MPR_Balloon.otf");
+            src: url("font/MPR_Balloon.woff2");
         }
 
         @font-face {
             font-family: "weekend";
-            src: url("font/Weekend Citron.otf");
+            src: url("font/Weekend Citron.woff2");
         }
 
         @font-face {
             font-family: "isekai";
-            src: url("font/ISEKAI-grimoire-.otf");
+            src: url("font/ISEKAI-grimoire-.woff2");
         }
 
-        body {
-            margin: 40px;
-            font-family: sans-serif;
-        }
 
         .container {
             max-width: 1160px;
@@ -89,7 +64,7 @@
         }
 
         #preview {
-            font-family: "lefthanded";
+            font-family: "daisuki_free";
             font-size: 80px;
             margin-top: 60px;
         }
@@ -135,13 +110,10 @@
             border-radius: 12px;
             padding: 24px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-
             flex: 0 1 calc((100% - 40px)/3);
-            /* 横幅を3分割（gapを引いた分） */
             min-width: 366px;
-            /* 小さくなりすぎない */
             box-sizing: border-box;
-            /* paddingを含めた幅計算 */
+
         }
 
 
@@ -177,37 +149,20 @@
 
         <p>入力した文字が各フォントで表示されます。</p>
 
-        <textarea id="input">吾輩は猫である abc 123</textarea>
+        <textarea id="input">こんにちは abc 123</textarea>
 
         <h3 class="fontselect">フォント選択</h3>
 
+        <button class="active" onclick="changeFont('daisuki_free', this)">
+            大大大大だぁい好き 無料版
+        </button>
 
         <button onclick="changeFont('lefthanded_free', this)">
             左利きの彼女 無料版
         </button>
 
-        <button class="active" onclick="changeFont('lefthanded', this)">
-            左利きの彼女 通常版
-        </button>
-
         <button onclick="changeFont('ringo_free', this)">
             りんごひめ 無料版
-        </button>
-
-        <button onclick="changeFont('ringo_regular', this)">
-            りんごひめ Regular
-        </button>
-
-        <button onclick="changeFont('ringo_bold', this)">
-            りんごひめ Bold
-        </button>
-
-        <button onclick="changeFont('furikake', this)">
-            あしらいフォント FURIKAKE!
-        </button>
-
-        <button onclick="changeFont('furikake_hand', this)">
-            あしらいフォント FURIKAKE! 手描き版
         </button>
 
         <button onclick="changeFont('mpr', this)">
@@ -224,7 +179,7 @@
 
         <h3 class="fontselect">プレビュー</h3>
         <div id="preview">
-            吾輩は猫である abc 123
+            こんにちは abc 123
         </div>
 
 
@@ -259,7 +214,7 @@
 
         <div class="buy">
 
-            <h2>無料ダウンロード・購入はこちら</h2>
+            <h2>無料ダウンロード・有料版の購入はこちら</h2>
 
             <div class="buy-grid">
 
@@ -277,7 +232,7 @@
 
                 <div class="buy-card">
                     <h3>デザインポケット</h3>
-                    <p>領収書が必要な方はこちら（一部のみお取り扱い）</p>
+                    <p>領収書が必要な方はこちら（購入のみ/一部のみお取り扱い）</p>
                     <a class="buy-button" href="https://designpocket.jp/font?brand=561" target="_blank">購入ページへ</a>
                 </div>
 
